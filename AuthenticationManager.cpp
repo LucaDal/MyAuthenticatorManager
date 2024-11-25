@@ -9,7 +9,6 @@ AuthManger::AuthManger(size_t start_address, size_t eeprom_size){
 }
 
 void write(const char * value, size_t address){
-    
     for (size_t i = 0; i < strlen(value); i++)
         EEPROM.write(address + i, value[i]);
 }
@@ -34,8 +33,6 @@ extern char * AuthManger::getPassword(){
 }
 
 extern void AuthManger::writeUsernameAndPassword(const char * username, const char * password){
-
-
     //write at start address len of username
     EEPROM.write(this->start_address, (byte)strlen(username));
     //write at start address + 1 len of psw
